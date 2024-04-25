@@ -1,5 +1,5 @@
 /***
- * Minimap Plugin 
+ * Radar Plugin 
  * It only displays the location of users who are at most 60 meters away from the current user in the world.
  * The other users within the world is mapped onto the minimap relative to the where the current user is looking at (ie the same direction as to where the camera is rotated).
  * 
@@ -7,7 +7,7 @@
 
 import packageJson from '../package.json'
 
-export default class MinimapPlugin {
+export default class RadarPlugin {
 
     // Plugin information
     id              = packageJson.metapress?.id || packageJson.name
@@ -17,7 +17,7 @@ export default class MinimapPlugin {
     provides        = [ ]
     requires        = [ 'avatar', 'camera' ]
 
-    /** Timer to update the minimap */
+    /** Timer to update the radar */
     updateTimer = null
 
     /** Container of the minimap */
@@ -53,12 +53,12 @@ export default class MinimapPlugin {
     createMinimapUI() {
         // Create the minimap UI
         this.minimap = document.createElement('div')
-        this.minimap.id = 'minimap.plugin.container'
+        this.minimap.id = 'radar.plugin.container'
         this.minimap.style.cssText = `display: flex; position: absolute; right: 10px; top: 10px; width: 140px; height: 140px; flex-shrink: 0; border-radius: 50%; border: 2px solid rgb(27, 27, 27); background-color: rgb(53, 53, 53); box-shadow: rgba(0, 0, 0, 0.25) 2px 2px 6px 0px; overflow: hidden; align-items: center;`
 
         // Add the current user to the minimap
         const userElem = document.createElement('div')
-        userElem.id = 'minimap.plugin.currentuser.elem'
+        userElem.id = 'radar.plugin.currentuser.elem'
         userElem.style.cssText = `width: 10px; height: 10px; border-radius: 50%; background-color:  #188545; position: absolute; z-index: 99;`
 
         // Add radius circle
@@ -67,7 +67,7 @@ export default class MinimapPlugin {
 
         // create a round canvas to draw up the other users in the space
         this.canvas = document.createElement('canvas')
-        this.canvas.id = 'minimap.plugin.canvas'
+        this.canvas.id = 'radar.plugin.canvas'
         this.canvas.width = 140
         this.canvas.height = 140
         this.canvas.style.cssText = `position: absolute; border-radius: 50%; overflow: hidden;`
@@ -150,13 +150,13 @@ export default class MinimapPlugin {
     /** AI Knowledge base */
     $ai_getKnowledgeBaseEntries = () => [
 
-        // Details about the Minimap plugin
+        // Details about the Radar plugin
         {
-            id: `${this.id}:minimapPlugin`,
+            id: `${this.id}:radarPlugin`,
             type: 'info',
-            name: 'Minimap plugin information',
-            tags: 'minimap, minimap plugin, minimap capability, minimap description, minimap info, minimap information, circle with green dot',
-            content: `The Minimap plugin acts as a GPS locator whereby it only displays the location of other users in the world who are at most 60 meters away from you. The green circle represents you and the red rectangles represent the other users and they are mapped relative to where you are looking at (ie the same direction as to where the camera is rotated).`,
+            name: 'Radar plugin information',
+            tags: 'radar, radar plugin, radar capability, radar description, radar info,radar information, circle with green dot',
+            content: `The Radar plugin acts as a GPS locator whereby it only displays the location of other users in the world who are at most 60 meters away from you. The green circle represents you and the red rectangles represent the other users and they are mapped relative to where you are looking at (ie the same direction as to where the camera is rotated).`,
         }
 
     ]
