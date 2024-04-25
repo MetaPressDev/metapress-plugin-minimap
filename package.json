@@ -1,7 +1,7 @@
 {
-    "name": "metapress-plugin-minimap",
-    "version": "1.1.0",
-    "description": "Minimap Plugin for MetaPress. It only displays the location of users who are at most 60 meters away from the current user relative to where you are looking at.",
+    "name": "metapress-plugin-radar",
+    "version": "1.0.2",
+    "description": "Radar Plugin for MetaPress. It only displays the location of users who are at most 60 meters away from the current user relative to where you are looking at.",
     "main": "js/loader.js",
     "private": true,
     "scripts": {
@@ -15,8 +15,8 @@
     "author": "",
     "license": "ISC",
     "metapress": {
-        "id": "com.minimap.plugin",
-        "name": "Minimap Plugin"
+        "id": "com.radar.plugin",
+        "name": "Radar Plugin"
     },
     "devDependencies": {
         "@babel/core": "^7.22.9",
