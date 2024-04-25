@@ -1,6 +1,6 @@
 {
     "name": "metapress-plugin-minimap",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "description": "Minimap Plugin for MetaPress. It only displays the location of users who are at most 60 meters away from the current user relative to where you are looking at.",
     "main": "js/loader.js",
     "private": true,

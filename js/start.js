@@ -147,4 +147,18 @@ export default class MinimapPlugin {
         ctx.fillRect(coordX, coordY, 10, 8)
     }
 
+    /** AI Knowledge base */
+    $ai_getKnowledgeBaseEntries = () => [
+
+        // Details about the Minimap plugin
+        {
+            id: `${this.id}:minimapPlugin`,
+            type: 'info',
+            name: 'Minimap plugin information',
+            tags: 'minimap, minimap plugin, minimap capability, minimap description, minimap info, minimap information, circle with green dot',
+            content: `The Minimap plugin acts as a GPS locator whereby it only displays the location of other users in the world who are at most 60 meters away from you. The green circle represents you and the red rectangles represent the other users and they are mapped relative to where you are looking at (ie the same direction as to where the camera is rotated).`,
+        }
+
+    ]
+
 }
